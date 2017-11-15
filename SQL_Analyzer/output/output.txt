@@ -1,0 +1,30 @@
+Database analyzed: Data Source=(localdb)\v11.0;Initial Catalog=tempdb;Integrated Security=True
+Time started: 11/15/2017 8:21:48 AM
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Compound data analyzer
+No offenses found. Great!
+~~~WARNINGS FOUND~~~
+Potential compound data found in column [Pets].[Species]
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Duplicate Column Name Analyzer
+No offenses found. Great!
+~~~WARNINGS FOUND~~~
+Duplicate column name 'Age' in tables: Person, Pets
+Duplicate column name 'FirstName' in tables: Person, Pets
+Duplicate column name 'Id' in tables: Person, Pets
+Duplicate column name 'LastName' in tables: Person, Pets
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Excessive NULL Analyzer
+!!!OFFENSES FOUND!!!
+Column [Person].[Wealth] is more than half NULL
+~~~WARNINGS FOUND~~~
+Column [Pets].[LastName] is more than thirty percent NULL
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
