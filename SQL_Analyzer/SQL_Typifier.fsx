@@ -34,7 +34,7 @@ type ColumnInfo = {
     }
     
 //Needed to dynamically execute SQL queries
-let makeCustomSelect (connectionString: string) (q: string) =
+let private makeCustomSelect (connectionString: string) (q: string) =
     System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
     let tab s = "    " + s
     let path = @"Select_Query_Script.fsx"
@@ -64,10 +64,10 @@ let (|Regex|_|) pattern input = //For pattern matching
     if m.Success then Some(List.tail [ for g in m.Groups -> g.Value ])
     else None
 
-let fsiValToStringList (fsiVal: FsiValue) = //pass to the evaluator so it converts the FsiValue to a usable type
+let private fsiValToStringList (fsiVal: FsiValue) = //pass to the evaluator so it converts the FsiValue to a usable type
     box fsiVal.ReflectionValue :?> string list
         
-let parseDatum (s: string) = //parse the returned string into a more informative string
+let private parseDatum (s: string) = //parse the returned string into a more informative string
     match s with
     | Regex """(Some )("?([\d\w. -]+)"?)""" [some; valWithQuotes; value] -> value
     | Regex """("(\w+)")""" [stringDatumWithQuotes; stringDatum] -> stringDatum //add \d??
@@ -75,10 +75,10 @@ let parseDatum (s: string) = //parse the returned string into a more informative
 
 // ------------------------- PARSERS ------------------------------
 
-let parseFsiValToString (fsiVal: FsiValue) = //pass to Evaluator so it returns a nice happy string
+let private parseFsiValToString (fsiVal: FsiValue) = //pass to Evaluator so it returns a nice happy string
     fsiValToStringList fsiVal |> List.map (fun s -> parseDatum s)
     
-let parseAllRowInfo (tableName: string) (fsiVal: FsiValue) =
+let private parseAllRowInfo (tableName: string) (fsiVal: FsiValue) =
 
     let parseSingleRow (row: string []) =
         let rowInfo =

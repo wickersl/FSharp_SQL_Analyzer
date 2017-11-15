@@ -1,5 +1,5 @@
 Database analyzed: Data Source=(localdb)\v11.0;Initial Catalog=tempdb;Integrated Security=True
-Time started: 11/15/2017 8:21:48 AM
+Time started: 11/15/2017 1:25:00 PM
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Compound data analyzer
 No offenses found. Great!
@@ -23,8 +23,8 @@ Duplicate column name 'LastName' in tables: Person, Pets
 Excessive NULL Analyzer
 !!!OFFENSES FOUND!!!
 Column [Person].[Wealth] is more than half NULL
-~~~WARNINGS FOUND~~~
-Column [Pets].[LastName] is more than thirty percent NULL
+Column [Pets].[LastName] is more than half NULL
+No warnings found. Great!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
